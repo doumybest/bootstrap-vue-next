@@ -9,7 +9,7 @@
       @after-leave="onAfterLeave"
     >
       <div
-        v-show="modelValueBoolean"
+        v-if="modelValueBoolean"
         :id="computedId"
         ref="element"
         class="modal"
