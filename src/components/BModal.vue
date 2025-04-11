@@ -101,7 +101,16 @@
 </template>
 
 <script setup lang="ts">
-import {computed, type CSSProperties, reactive, ref, type RendererElement, toRef, watch} from 'vue'
+import {
+  computed,
+  type CSSProperties,
+  onUnmounted,
+  reactive,
+  ref,
+  type RendererElement,
+  toRef,
+  watch,
+} from 'vue'
 import {
   useBooleanish,
   useColorVariantClasses,
@@ -442,7 +451,7 @@ const buildTriggerableEvent = (
     componentId: computedId.value,
   })
 
-watch(modelValueBoolean, (newValue, oldValue) => {
+const stopWatchModelValue = watch(modelValueBoolean, (newValue, oldValue) => {
   if (newValue === oldValue) return
   if (newValue === true) {
     showFn()
@@ -554,6 +563,10 @@ defineExpose({
   hide,
   id: computedId,
   show: showFn,
+})
+
+onUnmounted(() => {
+  stopWatchModelValue()
 })
 </script>
 
