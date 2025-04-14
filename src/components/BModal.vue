@@ -1,5 +1,5 @@
 <template>
-  <Teleport :to="teleportTo" :disabled="teleportDisabledBoolean" v-if="modelValueBoolean">
+  <Teleport v-if="modelValueBoolean" :to="teleportTo" :disabled="teleportDisabledBoolean">
     <BTransition
       :no-fade="true"
       :trans-props="{enterToClass: 'show'}"
@@ -101,7 +101,17 @@
 </template>
 
 <script setup lang="ts">
-import {computed, type CSSProperties, reactive, ref, type RendererElement, toRef, watch, onMounted, onUnmounted} from 'vue'
+import {
+  computed,
+  type CSSProperties,
+  onMounted,
+  onUnmounted,
+  reactive,
+  ref,
+  type RendererElement,
+  toRef,
+  watch,
+} from 'vue'
 import {
   useBooleanish,
   useColorVariantClasses,
@@ -321,7 +331,7 @@ const closeButton = ref<HTMLElement | null>(null)
 const isActive = ref(modelValueBoolean.value)
 const lazyLoadCompleted = ref(false)
 
-onKeyStroke(
+const stopEscKeyStroke = onKeyStroke(
   'Escape',
   () => {
     hide('esc')
@@ -557,17 +567,18 @@ defineExpose({
 })
 
 onMounted(() => {
-  console.log('modal mounted');
-  console.log('element : ', element.value);
+  console.log('modal mounted')
+  console.log('element : ', element.value)
 })
 
 onUnmounted(() => {
-  stopWartchModalValue();
-  element.value = null;
-  okButton.value = null;
-  cancelButton.value = null;
-  closeButton.value = null;
-  console.log('modal unmounted');
+  stopWartchModalValue()
+  stopEscKeyStroke()
+  element.value = null
+  okButton.value = null
+  cancelButton.value = null
+  closeButton.value = null
+  console.log('modal unmounted')
 })
 </script>
 
