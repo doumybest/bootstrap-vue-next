@@ -1,5 +1,5 @@
 <template>
-  <div v-if="modelValueBoolean" ref="wrapper" :class="computedClasses" class="btn-group">
+  <div ref="wrapper" :class="computedClasses" class="btn-group">
     <BButton
       :id="computedId"
       ref="splitButton"
@@ -68,7 +68,17 @@ import {
   useFloating,
 } from '@floating-ui/vue'
 import {onClickOutside, onKeyStroke, useToNumber, useVModel} from '@vueuse/core'
-import {computed, type CSSProperties, nextTick, provide, ref, toRef, watch} from 'vue'
+import {
+  computed,
+  type CSSProperties,
+  nextTick,
+  onMounted,
+  onUnmounted,
+  provide,
+  ref,
+  toRef,
+  watch,
+} from 'vue'
 import {useBooleanish, useId} from '../../composables'
 import type {BDropdownProps} from '../../types'
 import {BvTriggerableEvent, dropdownInjectionKey, resolveFloatingPlacement} from '../../utils'
@@ -271,7 +281,6 @@ const {update, floatingStyles} = useFloating(referencePlacement, floating, {
   placement: floatingPlacement,
   middleware: floatingMiddleware,
   strategy: toRef(() => props.strategy),
-  whileElementsMounted: autoUpdate,
 })
 
 const computedClasses = computed(() => ({
@@ -331,9 +340,7 @@ const toggle = () => {
   }
   modelValue.value = !currentModelValue
   currentModelValue ? emit('hidden') : emit('shown')
-  nextTick(() => {
-    wrapper.value?.dispatchEvent(new Event('forceHide'))
-  })
+  wrapper.value?.dispatchEvent(new Event('forceHide'))
 }
 
 watch(modelValueBoolean, () => {
@@ -353,5 +360,20 @@ provide(dropdownInjectionKey, {
   toggle,
   visible: modelValueBoolean,
   isNav: isNavBoolean,
+})
+
+let cleanupAutoUpdate: (() => void) | null = null
+
+onMounted(() => {
+  if (referencePlacement.value && floating.value) {
+    cleanupAutoUpdate = autoUpdate(referencePlacement.value, floating.value, update)
+  }
+})
+
+onUnmounted(() => {
+  if (cleanupAutoUpdate) {
+    cleanupAutoUpdate()
+    cleanupAutoUpdate = null
+  }
 })
 </script>
