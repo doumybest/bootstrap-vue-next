@@ -1,5 +1,5 @@
 <template>
-  <Teleport v-if="modelValueBoolean" :to="teleportTo" :disabled="teleportDisabledBoolean">
+  <Teleport :to="teleportTo" :disabled="teleportDisabledBoolean">
     <BTransition
       :no-fade="true"
       :trans-props="{enterToClass: 'show'}"
@@ -104,7 +104,6 @@
 import {
   computed,
   type CSSProperties,
-  onMounted,
   onUnmounted,
   reactive,
   ref,
@@ -566,11 +565,6 @@ defineExpose({
   show: showFn,
 })
 
-onMounted(() => {
-  console.log('modal mounted')
-  console.log('element : ', element.value)
-})
-
 onUnmounted(() => {
   stopWartchModalValue()
   stopEscKeyStroke()
@@ -578,7 +572,6 @@ onUnmounted(() => {
   okButton.value = null
   cancelButton.value = null
   closeButton.value = null
-  console.log('modal unmounted')
 })
 </script>
 

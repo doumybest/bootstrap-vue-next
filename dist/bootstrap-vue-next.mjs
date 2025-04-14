@@ -1,7 +1,7 @@
 var xn = Object.defineProperty;
 var Mn = (e, t, o) => t in e ? xn(e, t, { enumerable: !0, configurable: !0, writable: !0, value: o }) : e[t] = o;
 var De = (e, t, o) => (Mn(e, typeof t != "symbol" ? t + "" : t, o), o);
-import { unref as v, computed as w, ref as G, shallowRef as ua, watch as re, getCurrentScope as el, onScopeDispose as tl, shallowReadonly as Tt, effectScope as al, isRef as ol, toRef as E, readonly as Xe, customRef as Dn, getCurrentInstance as Ht, onMounted as at, nextTick as Ne, reactive as da, watchEffect as Xt, toValue as it, onActivated as jn, defineComponent as W, onBeforeUnmount as Ga, openBlock as m, createElementBlock as N, Fragment as ge, createElementVNode as Q, renderSlot as A, createBlock as x, Teleport as zt, mergeProps as J, normalizeClass as j, normalizeStyle as ze, createTextVNode as ne, toDisplayString as Y, createCommentVNode as Z, createApp as Wn, h as Fe, provide as ot, resolveDynamicComponent as se, withCtx as R, useAttrs as Kt, inject as qe, createVNode as ye, Transition as qn, normalizeProps as Ce, guardReactiveProps as Ee, useSlots as Me, renderList as _e, TransitionGroup as Gn, withDirectives as ht, vShow as ha, withModifiers as Bt, vModelCheckbox as Un, vModelRadio as Xn, vModelSelect as Kn, onUnmounted as ll, createSlots as Ua, withKeys as Qt } from "vue";
+import { unref as v, computed as w, ref as G, shallowRef as ua, watch as re, getCurrentScope as el, onScopeDispose as tl, shallowReadonly as Tt, effectScope as al, isRef as ol, toRef as E, readonly as Xe, customRef as Dn, getCurrentInstance as Ht, onMounted as st, nextTick as Ne, reactive as da, watchEffect as Xt, toValue as it, onActivated as jn, defineComponent as W, onBeforeUnmount as Ga, openBlock as m, createElementBlock as N, Fragment as ge, createElementVNode as Q, renderSlot as A, createBlock as x, Teleport as zt, mergeProps as J, normalizeClass as j, normalizeStyle as ze, createTextVNode as ne, toDisplayString as Y, createCommentVNode as Z, createApp as Wn, h as Fe, provide as at, resolveDynamicComponent as se, withCtx as R, useAttrs as Kt, inject as qe, createVNode as ye, Transition as qn, normalizeProps as Ce, guardReactiveProps as Ee, useSlots as Me, renderList as _e, TransitionGroup as Gn, withDirectives as ht, vShow as ha, withModifiers as Bt, vModelCheckbox as Un, vModelRadio as Xn, vModelSelect as Kn, onUnmounted as ll, createSlots as Ua, withKeys as Qt } from "vue";
 class dt {
   constructor(t, o = {}) {
     De(this, "cancelable", !0);
@@ -142,37 +142,37 @@ const dl = typeof window < "u", ds = typeof document < "u", cs = typeof navigato
       e = !1;
     }
   return e;
-})(), Aa = is ? Element.prototype : void 0, lt = (e) => !!(e && typeof e == "object" && "nodeType" in e && e.nodeType === Node.ELEMENT_NODE), vs = (e) => lt(e) ? e.getBoundingClientRect() : null, ps = (e = []) => {
+})(), Aa = is ? Element.prototype : void 0, ot = (e) => !!(e && typeof e == "object" && "nodeType" in e && e.nodeType === Node.ELEMENT_NODE), vs = (e) => ot(e) ? e.getBoundingClientRect() : null, ps = (e = []) => {
   const { activeElement: t } = document;
   return t && !e.some((o) => o === t) ? t : null;
-}, ms = (e) => lt(e) && e === ps(), gs = (e, t = {}) => {
+}, ms = (e) => ot(e) && e === ps(), gs = (e, t = {}) => {
   try {
     e.focus(t);
   } catch (o) {
     console.error(o);
   }
   return ms(e);
-}, bs = (e, t) => t && lt(e) && e.getAttribute(t) || null, ys = (e) => {
+}, bs = (e, t) => t && ot(e) && e.getAttribute(t) || null, ys = (e) => {
   if (bs(e, "display") === "none")
     return !1;
   const t = vs(e);
   return !!(t && t.height > 0 && t.width > 0);
-}, Le = (e) => ((e == null ? void 0 : e()) ?? []).length === 0, cl = (e, t) => (lt(t) ? t : Xa).querySelector(e) || null, hs = (e, t) => Array.from([(lt(t) ? t : Xa).querySelectorAll(e)]), Ya = (e, t) => t && lt(e) ? e.getAttribute(t) : null, Bs = (e) => Xa.getElementById(/^#/.test(e) ? e.slice(1) : e) || null, Ss = (e, t, o) => {
-  t && lt(e) && e.setAttribute(t, o);
+}, Le = (e) => ((e == null ? void 0 : e()) ?? []).length === 0, cl = (e, t) => (ot(t) ? t : Xa).querySelector(e) || null, hs = (e, t) => Array.from([(ot(t) ? t : Xa).querySelectorAll(e)]), Ya = (e, t) => t && ot(e) ? e.getAttribute(t) : null, Bs = (e) => Xa.getElementById(/^#/.test(e) ? e.slice(1) : e) || null, Ss = (e, t, o) => {
+  t && ot(e) && e.setAttribute(t, o);
 }, Cs = (e, t) => {
-  t && lt(e) && e.removeAttribute(t);
-}, ws = (e, t) => ca(e).toLowerCase() === ca(t).toLowerCase(), ks = (e, t) => lt(e) ? e.matches(t) : !1, $s = (Aa == null ? void 0 : Aa.closest) || function(e) {
+  t && ot(e) && e.removeAttribute(t);
+}, ws = (e, t) => ca(e).toLowerCase() === ca(t).toLowerCase(), ks = (e, t) => ot(e) ? e.matches(t) : !1, $s = (Aa == null ? void 0 : Aa.closest) || function(e) {
   let t = this;
   if (!t)
     return null;
   do {
-    if (lt(t) && t.matches(e))
+    if (ot(t) && t.matches(e))
       return t;
     t = t.parentElement || t.parentNode;
   } while (t !== null && t.nodeType === Node.ELEMENT_NODE);
   return null;
 }, ho = (e, t, o = !1) => {
-  if (!lt(t))
+  if (!ot(t))
     return null;
   const a = $s.call(t, e);
   return o ? a : a === t ? null : a;
@@ -934,7 +934,7 @@ function Bl(e) {
 function ct(e) {
   return e instanceof Element || e instanceof Ge(e).Element;
 }
-function st(e) {
+function nt(e) {
   return e instanceof HTMLElement || e instanceof Ge(e).HTMLElement;
 }
 function $o(e) {
@@ -958,7 +958,7 @@ function eo(e) {
 }
 function js(e) {
   let t = Ft(e);
-  for (; st(t) && !Ba(t); ) {
+  for (; nt(t) && !Ba(t); ) {
     if (eo(t))
       return t;
     t = Ft(t);
@@ -997,7 +997,7 @@ function Ft(e) {
 }
 function Sl(e) {
   const t = Ft(e);
-  return Ba(t) ? e.ownerDocument ? e.ownerDocument.body : e.body : st(t) && Yt(t) ? t : Sl(t);
+  return Ba(t) ? e.ownerDocument ? e.ownerDocument.body : e.body : nt(t) && Yt(t) ? t : Sl(t);
 }
 function Gt(e, t, o) {
   var a;
@@ -1008,7 +1008,7 @@ function Gt(e, t, o) {
 function Cl(e) {
   const t = Ze(e);
   let o = parseFloat(t.width) || 0, a = parseFloat(t.height) || 0;
-  const l = st(e), n = l ? e.offsetWidth : o, i = l ? e.offsetHeight : a, s = fa(o) !== n || fa(a) !== i;
+  const l = nt(e), n = l ? e.offsetWidth : o, i = l ? e.offsetHeight : a, s = fa(o) !== n || fa(a) !== i;
   return s && (o = n, a = i), {
     width: o,
     height: a,
@@ -1020,7 +1020,7 @@ function ao(e) {
 }
 function Pt(e) {
   const t = ao(e);
-  if (!st(t))
+  if (!nt(t))
     return mt(1);
   const o = t.getBoundingClientRect(), {
     width: a,
@@ -1072,7 +1072,7 @@ function Gs(e) {
     offsetParent: o,
     strategy: a
   } = e;
-  const l = st(o), n = vt(o);
+  const l = nt(o), n = vt(o);
   if (o === n)
     return t;
   let i = {
@@ -1080,7 +1080,7 @@ function Gs(e) {
     scrollTop: 0
   }, s = mt(1);
   const u = mt(0);
-  if ((l || !l && a !== "fixed") && ((gt(o) !== "body" || Yt(n)) && (i = Sa(o)), st(o))) {
+  if ((l || !l && a !== "fixed") && ((gt(o) !== "body" || Yt(n)) && (i = Sa(o)), nt(o))) {
     const d = St(o);
     s = Pt(o), u.x = d.x + o.clientLeft, u.y = d.y + o.clientTop;
   }
@@ -1124,7 +1124,7 @@ function Ks(e, t) {
   };
 }
 function Ys(e, t) {
-  const o = St(e, !0, t === "fixed"), a = o.top + e.clientTop, l = o.left + e.clientLeft, n = st(e) ? Pt(e) : mt(1), i = e.clientWidth * n.x, s = e.clientHeight * n.y, u = l * n.x, d = a * n.y;
+  const o = St(e, !0, t === "fixed"), a = o.top + e.clientTop, l = o.left + e.clientLeft, n = nt(e) ? Pt(e) : mt(1), i = e.clientWidth * n.x, s = e.clientHeight * n.y, u = l * n.x, d = a * n.y;
   return {
     width: i,
     height: s,
@@ -1189,7 +1189,7 @@ function Qs(e) {
   return Cl(e);
 }
 function ei(e, t, o) {
-  const a = st(t), l = vt(t), n = o === "fixed", i = St(e, !0, n, t);
+  const a = nt(t), l = vt(t), n = o === "fixed", i = St(e, !0, n, t);
   let s = {
     scrollLeft: 0,
     scrollTop: 0
@@ -1209,11 +1209,11 @@ function ei(e, t, o) {
   };
 }
 function _o(e, t) {
-  return !st(e) || Ze(e).position === "fixed" ? null : t ? t(e) : e.offsetParent;
+  return !nt(e) || Ze(e).position === "fixed" ? null : t ? t(e) : e.offsetParent;
 }
 function Tl(e, t) {
   const o = Ge(e);
-  if (!st(e))
+  if (!nt(e))
     return o;
   let a = _o(e, t);
   for (; a && Ds(a) && Ze(a).position === "static"; )
@@ -1612,7 +1612,7 @@ function Si(e, t, o = {}) {
   ), pause: i, resume: s, isActive: u };
 }
 function Il(e, t = !0) {
-  Ht() ? at(e) : t ? e() : Ne(e);
+  Ht() ? st(e) : t ? e() : Ne(e);
 }
 function Ll(e, t = 1e3, o = {}) {
   const {
@@ -1740,7 +1740,7 @@ function We(...e) {
 }
 function wi() {
   const e = G(!1);
-  return Ht() && at(() => {
+  return Ht() && st(() => {
     e.value = !0;
   }), e;
 }
@@ -2379,7 +2379,7 @@ const Zt = (e) => w(() => {
   }, { focused: C } = xe(o, {
     initialValue: n.value
   }), c = (T, O, F = !1) => e.formatter !== void 0 && (!u.value || F) ? e.formatter(T, O) : T, h = (T) => g.value ? T.trim() : d.value ? Number.parseFloat(T) : T;
-  at(() => {
+  st(() => {
     var T;
     o.value && (o.value.value = ((T = a.value) == null ? void 0 : T.toString()) ?? "");
   }), jn(() => {
@@ -2559,7 +2559,7 @@ const Zt = (e) => w(() => {
   }));
 }, Ul = (e, t) => {
   const o = Xe(E(e)), a = Xe(E(t)), l = E(() => !a.value);
-  at(() => {
+  st(() => {
     const n = Hi(
       document.body,
       o.value && l.value
@@ -2809,7 +2809,7 @@ const Zt = (e) => w(() => {
       { ignore: [F] }
     ), re([() => a.click, () => a.target, () => a.reference], () => {
       ke(), ce();
-    }), at(ce), Ga(ke), (ee, de) => (m(), N(ge, null, [
+    }), st(ce), Ga(ke), (ee, de) => (m(), N(ge, null, [
       Q("span", {
         ref_key: "placeholder",
         ref: K
@@ -2986,7 +2986,7 @@ const Zt = (e) => w(() => {
     const o = e, l = $e(o, "modelValue", t, { passive: !0 }), n = Ve(() => o.id, "accordion"), i = r(() => o.flush), s = r(() => o.free), u = w(() => ({
       "accordion-flush": i.value
     }));
-    return ot(an, {
+    return at(an, {
       openItem: Xe(l),
       free: s,
       setOpenItem: (d) => {
@@ -3066,7 +3066,7 @@ const Zt = (e) => w(() => {
     };
     return re(i, () => {
       s.value ? I() : T();
-    }), at(() => {
+    }), st(() => {
       b.value !== null && !s.value && u.value && Ne(() => {
         i.value = !0;
       });
@@ -3086,7 +3086,7 @@ const Zt = (e) => w(() => {
       open: B,
       toggle: _,
       visible: Xe(C)
-    }), ot(uo, {
+    }), at(uo, {
       id: y,
       close: h,
       open: B,
@@ -3152,7 +3152,7 @@ const Zt = (e) => w(() => {
   emits: ["hidden", "hide", "hide-prevented", "show", "show-prevented", "shown", "update:modelValue"],
   setup(e, { emit: t }) {
     const { class: o, ...a } = Kt(), l = e, n = t, i = $e(l, "modelValue", n, { passive: !0 }), s = qe(an, null), u = Ve(() => l.id, "accordion_item");
-    return at(() => {
+    return st(() => {
       i.value && !(s != null && s.free.value) && (s == null || s.setOpenItem(u.value)), !i.value && (s == null ? void 0 : s.openItem.value) === u.value && (i.value = !0);
     }), re(
       () => s == null ? void 0 : s.openItem.value,
@@ -3775,7 +3775,7 @@ const $a = (e, t) => {
       const p = d.value ? `calc(${d.value} * ${f.value})` : null;
       return p ? { paddingLeft: p, paddingRight: p } : {};
     });
-    return ot(tn, {
+    return at(tn, {
       overlapScale: f,
       size: E(() => t.size),
       square: o,
@@ -4583,7 +4583,7 @@ const $a = (e, t) => {
       pause: K,
       prev: Se,
       resume: z
-    }), ot(Zl, {
+    }), at(Zl, {
       background: E(() => a.background),
       width: E(() => a.imgWidth),
       height: E(() => a.imgHeight)
@@ -4971,7 +4971,7 @@ const qt = /* @__PURE__ */ $a(xr, [["render", Mr]]), Dr = /* @__PURE__ */ W({
       close: M,
       open: L,
       toggle: U
-    }), ot(nn, {
+    }), at(nn, {
       id: n,
       open: L,
       close: M,
@@ -5543,7 +5543,7 @@ const qt = /* @__PURE__ */ $a(xr, [["render", Mr]]), Dr = /* @__PURE__ */ W({
     const a = e, l = o, n = $e(a, "modelValue", l), i = Ve(() => a.id, "checkbox"), s = Ve(() => a.name, "checkbox"), u = r(() => a.autofocus), d = r(() => a.buttons), f = r(() => a.disabled), g = r(() => a.plain), p = r(() => a.required), y = r(() => a.stacked), b = r(() => a.state), V = r(() => a.switches), C = r(() => a.validated), c = G(null), { focused: h } = xe(c, {
       initialValue: u.value
     });
-    ot(on, {
+    at(on, {
       modelValue: n,
       switch: V,
       buttonVariant: E(() => a.buttonVariant),
@@ -5773,7 +5773,7 @@ const qt = /* @__PURE__ */ $a(xr, [["render", Mr]]), Dr = /* @__PURE__ */ W({
       (_, k) => {
         _ !== k && p(_, k);
       }
-    ), at(() => {
+    ), st(() => {
       Ne(() => {
         p(s);
       });
@@ -6120,7 +6120,7 @@ const qt = /* @__PURE__ */ $a(xr, [["render", Mr]]), Dr = /* @__PURE__ */ W({
     const a = e, l = o, n = $e(a, "modelValue", l), i = Ve(() => a.id, "radio"), s = Ve(() => a.name, "checkbox"), u = r(() => a.autofocus), d = r(() => a.buttons), f = r(() => a.disabled), g = r(() => a.plain), p = r(() => a.required), y = r(() => a.stacked), b = r(() => a.state), V = r(() => a.validated), C = G(null), { focused: c } = xe(C, {
       initialValue: u.value
     });
-    ot(ln, {
+    at(ln, {
       modelValue: n,
       buttonVariant: E(() => a.buttonVariant),
       form: E(() => a.form),
@@ -7212,7 +7212,7 @@ const qt = /* @__PURE__ */ $a(xr, [["render", Mr]]), Dr = /* @__PURE__ */ W({
         "list-group-numbered": a.value
       };
     }), i = E(() => a.value === !0 ? "ol" : t.tag);
-    return ot(en, {
+    return at(en, {
       numbered: a
     }), (s, u) => (m(), x(se(i.value), {
       class: j(["list-group", n.value])
@@ -7567,12 +7567,9 @@ const qt = /* @__PURE__ */ $a(xr, [["render", Mr]]), Dr = /* @__PURE__ */ W({
       hide: Be,
       id: i,
       show: Ie
-    }), at(() => {
-      console.log("modal mounted"), console.log("element : ", K.value);
     }), ll(() => {
-      de(), ve(), K.value = null, z.value = null, P.value = null, D.value = null, console.log("modal unmounted");
-    }), (pe, Pe) => v(C) ? (m(), x(zt, {
-      key: 0,
+      de(), ve(), K.value = null, z.value = null, P.value = null, D.value = null;
+    }), (pe, Pe) => (m(), x(zt, {
       to: pe.teleportTo,
       disabled: v(T)
     }, [
@@ -7698,10 +7695,10 @@ const qt = /* @__PURE__ */ $a(xr, [["render", Mr]]), Dr = /* @__PURE__ */ W({
         ]),
         _: 3
       })
-    ], 8, ["to", "disabled"])) : Z("", !0);
+    ], 8, ["to", "disabled"]));
   }
 });
-const Td = /* @__PURE__ */ $a($d, [["__scopeId", "data-v-182ad1ff"]]), _d = /* @__PURE__ */ W({
+const Td = /* @__PURE__ */ $a($d, [["__scopeId", "data-v-8cda733f"]]), _d = /* @__PURE__ */ W({
   __name: "BNav",
   props: {
     align: { default: void 0 },
@@ -7956,7 +7953,7 @@ const Td = /* @__PURE__ */ $a($d, [["__scopeId", "data-v-182ad1ff"]]), _d = /* @
       "navbar-expand": n.value === !1,
       [`navbar-expand-${n.value}`]: typeof n.value == "string"
     }));
-    return ot(co, {
+    return at(co, {
       tag: E(() => t.tag),
       autoClose: a
     }), (d, f) => (m(), x(se(d.tag), {
@@ -8982,7 +8979,7 @@ const Td = /* @__PURE__ */ $a($d, [["__scopeId", "data-v-182ad1ff"]]), _d = /* @
   },
   setup(e) {
     const t = e, o = r(() => t.animated), a = r(() => t.showProgress), l = r(() => t.showValue), n = r(() => t.striped);
-    return ot(Ql, {
+    return at(Ql, {
       animated: o,
       max: E(() => t.max),
       showProgress: a,
@@ -9147,7 +9144,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
       A(a.$slots, "default")
     ], 2));
   }
-}), nt = /* @__PURE__ */ W({
+}), lt = /* @__PURE__ */ W({
   __name: "BTr",
   props: {
     variant: { default: null }
@@ -9292,7 +9289,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
         }, {
           default: R(() => [
             c.$slots["thead-top"] ? A(c.$slots, "thead-top", { key: 0 }) : Z("", !0),
-            ye(nt, {
+            ye(lt, {
               variant: c.headRowVariant,
               class: j(c.theadTrClass)
             }, {
@@ -9323,7 +9320,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
               ]),
               _: 3
             }, 8, ["variant", "class"]),
-            c.$slots["thead-sub"] ? (m(), x(nt, { key: 1 }, {
+            c.$slots["thead-sub"] ? (m(), x(lt, { key: 1 }, {
               default: R(() => [
                 (m(!0), N(ge, null, _e(d.value, (B) => (m(), x(Et, {
                   key: B.key,
@@ -9353,14 +9350,14 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
               items: c.items,
               columns: d.value.length
             }, () => [
-              !v(s) && c.$slots["top-row"] ? (m(), x(nt, { key: 0 }, {
+              !v(s) && c.$slots["top-row"] ? (m(), x(lt, { key: 0 }, {
                 default: R(() => [
                   A(c.$slots, "top-row")
                 ]),
                 _: 3
               })) : Z("", !0),
               (m(!0), N(ge, null, _e(c.items, (B, _) => (m(), N(ge, { key: _ }, [
-                ye(nt, {
+                ye(lt, {
                   class: j(C(B, "row")),
                   variant: B._rowVariant,
                   onClick: (k) => !v(ea)(k) && a("row-clicked", B, _, k),
@@ -9398,7 +9395,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
                   ]),
                   _: 2
                 }, 1032, ["class", "variant", "onClick", "onDblclick", "onMouseenter", "onMouseleave"]),
-                B._showDetails === !0 && c.$slots["row-details"] ? (m(), x(nt, {
+                B._showDetails === !0 && c.$slots["row-details"] ? (m(), x(lt, {
                   key: 0,
                   class: j(C(B, "row-details")),
                   variant: B._rowVariant
@@ -9421,7 +9418,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
                   _: 2
                 }, 1032, ["class", "variant"])) : Z("", !0)
               ], 64))), 128)),
-              v(i) && c.items.length === 0 ? (m(), x(nt, {
+              v(i) && c.items.length === 0 ? (m(), x(lt, {
                 key: 1,
                 class: "b-table-empty-slot"
               }, {
@@ -9437,7 +9434,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
                 ]),
                 _: 3
               })) : Z("", !0),
-              !v(s) && c.$slots["bottom-row"] ? (m(), x(nt, { key: 2 }, {
+              !v(s) && c.$slots["bottom-row"] ? (m(), x(lt, { key: 2 }, {
                 default: R(() => [
                   A(c.$slots, "bottom-row")
                 ]),
@@ -9453,7 +9450,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
           class: j(c.tfootClass)
         }, {
           default: R(() => [
-            ye(nt, {
+            ye(lt, {
               variant: c.footRowVariant,
               class: j(c.tfootTrClass)
             }, {
@@ -9750,7 +9747,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
         }
         oe();
       }
-    ), at(oe), t({
+    ), st(oe), t({
       // The row selection methods are really for compat. Users should probably use the v-model though
       clearSelected: () => {
         c.value && (f.clear(), fe());
@@ -9815,7 +9812,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
         ], 64)) : Z("", !0)
       ]),
       "custom-body": R((U) => [
-        v(y) ? (m(), x(nt, {
+        v(y) ? (m(), x(lt, {
           key: 0,
           class: j(["b-table-busy-slot", F.value])
         }, {
@@ -9885,7 +9882,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
         el: y.value
       })
     );
-    at(() => {
+    st(() => {
       n && (n.registerTab(C), u.value && n.activateTab(i.value));
     }), ll(() => {
       n && n.unregisterTab(i.value);
@@ -10062,7 +10059,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
       }
       S(c.value.map((P) => !P.disabled).indexOf(!0));
     };
-    return ot(Jl, {
+    return at(Jl, {
       lazy: f,
       card: i,
       noFade: g,
@@ -10498,7 +10495,7 @@ const nc = /* @__PURE__ */ $a(oc, [["render", lc]]), On = /* @__PURE__ */ W({
   BToast: Nn,
   BToaster: Tc,
   BTooltip: _c,
-  BTr: nt,
+  BTr: lt,
   BTransition: Mt
 }, Symbol.toStringTag, { value: "Module" })), Oc = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
@@ -10628,7 +10625,7 @@ export {
   Nn as BToast,
   Tc as BToaster,
   _c as BTooltip,
-  nt as BTr,
+  lt as BTr,
   Mt as BTransition,
   Nc as BootstrapVueNext,
   nl as BvCarouselEvent,
