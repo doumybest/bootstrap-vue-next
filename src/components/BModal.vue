@@ -1,6 +1,7 @@
 <template>
   <Teleport :to="teleportTo" :disabled="teleportDisabledBoolean">
     <BTransition
+      v-if="modelValueBoolean"
       :no-fade="true"
       :trans-props="{enterToClass: 'show'}"
       @before-enter="onBeforeEnter"
@@ -9,7 +10,6 @@
       @after-leave="onAfterLeave"
     >
       <div
-        v-show="modelValueBoolean"
         :id="computedId"
         ref="element"
         class="modal"
