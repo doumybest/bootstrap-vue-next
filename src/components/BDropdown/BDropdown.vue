@@ -1,5 +1,5 @@
 <template>
-  <div ref="wrapper" :class="computedClasses" class="btn-group">
+  <div v-if="modelValueBoolean" ref="wrapper" :class="computedClasses" class="btn-group">
     <BButton
       :id="computedId"
       ref="splitButton"
@@ -331,7 +331,9 @@ const toggle = () => {
   }
   modelValue.value = !currentModelValue
   currentModelValue ? emit('hidden') : emit('shown')
-  wrapper.value?.dispatchEvent(new Event('forceHide'))
+  nextTick(() => {
+    wrapper.value?.dispatchEvent(new Event('forceHide'))
+  })
 }
 
 watch(modelValueBoolean, () => {

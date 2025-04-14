@@ -1,7 +1,7 @@
 var Hn = Object.defineProperty;
 var zn = (e, t, o) => t in e ? Hn(e, t, { enumerable: !0, configurable: !0, writable: !0, value: o }) : e[t] = o;
 var De = (e, t, o) => (zn(e, typeof t != "symbol" ? t + "" : t, o), o);
-import { unref as v, computed as w, ref as W, shallowRef as ua, watch as ue, getCurrentScope as el, onScopeDispose as tl, shallowReadonly as Tt, effectScope as al, isRef as ol, toRef as E, readonly as Xe, customRef as Rn, getCurrentInstance as Ht, onMounted as st, nextTick as Ne, reactive as da, watchEffect as Xt, toValue as it, onActivated as xn, defineComponent as q, onBeforeUnmount as Wa, openBlock as m, createElementBlock as N, Fragment as ge, createElementVNode as ee, renderSlot as A, createBlock as x, Teleport as zt, mergeProps as Q, normalizeClass as j, normalizeStyle as ze, createTextVNode as ne, toDisplayString as Z, createCommentVNode as J, createApp as Mn, h as Le, provide as at, resolveDynamicComponent as se, withCtx as R, useAttrs as Kt, inject as Ge, createVNode as ye, Transition as Dn, normalizeProps as Se, useSlots as Me, renderList as Te, TransitionGroup as jn, withDirectives as ht, vShow as ha, withModifiers as Bt, vModelCheckbox as qn, vModelRadio as Gn, vModelSelect as Wn, guardReactiveProps as Pe, createSlots as Ua, onUnmounted as Un, withKeys as Qt } from "vue";
+import { unref as v, computed as w, ref as W, shallowRef as ua, watch as ue, getCurrentScope as el, onScopeDispose as tl, shallowReadonly as Tt, effectScope as al, isRef as ol, toRef as E, readonly as Xe, customRef as Rn, getCurrentInstance as Ht, onMounted as st, nextTick as Ne, reactive as da, watchEffect as Xt, toValue as it, onActivated as xn, defineComponent as q, onBeforeUnmount as Wa, openBlock as m, createElementBlock as N, Fragment as ge, createElementVNode as ee, renderSlot as A, createBlock as x, Teleport as zt, mergeProps as Q, normalizeClass as j, normalizeStyle as ze, createTextVNode as ne, toDisplayString as Z, createCommentVNode as J, createApp as Mn, h as Le, provide as at, resolveDynamicComponent as se, withCtx as R, useAttrs as Kt, inject as Ge, createVNode as ye, Transition as Dn, normalizeProps as Se, guardReactiveProps as Ee, useSlots as Me, renderList as Te, TransitionGroup as jn, withDirectives as ht, vShow as ha, withModifiers as Bt, vModelCheckbox as qn, vModelRadio as Gn, vModelSelect as Wn, createSlots as Ua, onUnmounted as Un, withKeys as Qt } from "vue";
 class dt {
   constructor(t, o = {}) {
     De(this, "cancelable", !0);
@@ -3212,7 +3212,6 @@ const Zt = (e) => w(() => {
 }), Mt = /* @__PURE__ */ q({
   __name: "BTransition",
   props: {
-    modelValueBoolean: { type: [String, Boolean], default: !1 },
     appear: { type: [String, Boolean], default: !1 },
     mode: { default: void 0 },
     noFade: { type: [String, Boolean], default: !1 },
@@ -3247,12 +3246,12 @@ const Zt = (e) => w(() => {
         appearToClass: l.value.enterToClass
       } : n.value
     );
-    return (s, u) => s.modelValueBoolean ? (m(), x(Dn, Se(Q({ key: 0 }, i.value)), {
+    return (s, u) => (m(), x(Dn, Se(Ee(i.value)), {
       default: R(() => [
         A(s.$slots, "default")
       ]),
       _: 3
-    }, 16)) : J("", !0);
+    }, 16));
   }
 });
 const nr = ["type", "disabled", "aria-label"], Dt = /* @__PURE__ */ q({
@@ -4957,14 +4956,16 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
     }, L = () => {
       i.value || U();
     }, U = () => {
-      var X;
       l("toggle");
       const H = s.value, G = new Rt(H ? "hide" : "show");
       if (l(H ? "hide" : "show", G), G.defaultPrevented) {
         l(H ? "hide-prevented" : "show-prevented");
         return;
       }
-      i.value = !H, l(H ? "hidden" : "shown"), (X = O.value) == null || X.dispatchEvent(new Event("forceHide"));
+      i.value = !H, l(H ? "hidden" : "shown"), Ne(() => {
+        var X;
+        (X = O.value) == null || X.dispatchEvent(new Event("forceHide"));
+      });
     };
     return ue(s, () => {
       ve();
@@ -4979,7 +4980,8 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
       toggle: U,
       visible: s,
       isNav: f
-    }), (H, G) => (m(), N("div", {
+    }), (H, G) => v(s) ? (m(), N("div", {
+      key: 0,
       ref_key: "wrapper",
       ref: O,
       class: j([Ve.value, "btn-group"])
@@ -5050,7 +5052,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
           [ha, v(B) || v(s)]
         ]) : J("", !0)
       ], 8, ["to", "disabled"]))
-    ], 2));
+    ], 2)) : J("", !0);
   }
 }), jr = { role: "presentation" }, qr = /* @__PURE__ */ q({
   __name: "BDropdownDivider",
@@ -6646,8 +6648,8 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
           onTouchstart: ce[1] || (ce[1] = //@ts-ignore
           (...Ce) => de.value.top.handler && de.value.top.handler(...Ce))
         }), [
-          (m(), N("svg", Se(Pe(de.value.top.svg)), [
-            ee("path", Se(Pe(de.value.top.path)), null, 16)
+          (m(), N("svg", Se(Ee(de.value.top.svg)), [
+            ee("path", Se(Ee(de.value.top.path)), null, 16)
           ], 16))
         ], 16)
       ]),
@@ -6683,8 +6685,8 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
           onTouchstart: ce[3] || (ce[3] = //@ts-ignore
           (...Ce) => de.value.bottom.handler && de.value.bottom.handler(...Ce))
         }), [
-          (m(), N("svg", Se(Pe(de.value.bottom.svg)), [
-            ee("path", Se(Pe(de.value.bottom.path)), null, 16)
+          (m(), N("svg", Se(Ee(de.value.bottom.svg)), [
+            ee("path", Se(Ee(de.value.bottom.path)), null, 16)
           ], 16))
         ], 16)
       ])
@@ -6935,7 +6937,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
         "aria-atomic": "true",
         class: "visually-hidden"
       }, " (" + Z(G.tagRemovedLabel) + ") " + Z(T.value), 9, Yu),
-      A(G.$slots, "default", Se(Pe(ve.value)), () => [
+      A(G.$slots, "default", Se(Ee(ve.value)), () => [
         ee("ul", {
           id: `${v(i)}tag_list__`,
           class: "b-form-tags-list list-unstyled mb-0 d-flex flex-wrap align-items-center"
@@ -7175,7 +7177,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
     isText: { type: [String, Boolean], default: !1 }
   },
   setup(e) {
-    return (t, o) => (m(), x(mo, Se(Pe(t.$props)), {
+    return (t, o) => (m(), x(mo, Se(Ee(t.$props)), {
       default: R(() => [
         A(t.$slots, "default")
       ]),
@@ -7188,7 +7190,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
     isText: { type: [String, Boolean], default: !1 }
   },
   setup(e) {
-    return (t, o) => (m(), x(mo, Se(Pe(t.$props)), {
+    return (t, o) => (m(), x(mo, Se(Ee(t.$props)), {
       default: R(() => [
         A(t.$slots, "default")
       ]),
@@ -7365,7 +7367,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                   class: "position-absolute",
                   style: ze(I.value)
                 }, [
-                  A(T.$slots, "overlay", Se(Pe(B.value)), () => [
+                  A(T.$slots, "overlay", Se(Ee(B.value)), () => [
                     v(i) ? J("", !0) : (m(), x(ka, Se(Q({ key: 0 }, B.value)), null, 16))
                   ])
                 ], 4)
@@ -7506,24 +7508,24 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
       {
         "visually-hidden": I.value
       }
-    ]), ie = E(() => f.value || u.value), ce = E(() => k.value || u.value), Ce = (pe, Ee = {}) => new Rt(pe, {
+    ]), ie = E(() => f.value || u.value), ce = E(() => k.value || u.value), Ce = (pe, Pe = {}) => new Rt(pe, {
       cancelable: !1,
       target: K.value || null,
       relatedTarget: null,
       trigger: null,
-      ...Ee,
+      ...Pe,
       componentId: i.value
     });
-    ue(C, (pe, Ee) => {
-      pe !== Ee && (pe === !0 ? re() : Y());
+    ue(C, (pe, Pe) => {
+      pe !== Pe && (pe === !0 ? re() : Y());
     });
     const Y = (pe = "") => {
       if (pe === "backdrop" && c.value || pe === "esc" && h.value) {
         l("hide-prevented");
         return;
       }
-      const Ee = Ce("hide", { cancelable: pe !== "", trigger: pe });
-      if (pe === "ok" && l(pe, Ee), pe === "cancel" && l(pe, Ee), pe === "close" && l(pe, Ee), l("hide", Ee), Ee.defaultPrevented) {
+      const Pe = Ce("hide", { cancelable: pe !== "", trigger: pe });
+      if (pe === "ok" && l(pe, Pe), pe === "cancel" && l(pe, Pe), pe === "close" && l(pe, Pe), l("hide", Pe), Pe.defaultPrevented) {
         l("hide-prevented"), s.value || (s.value = !0);
         return;
       }
@@ -7570,14 +7572,13 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
       hide: Y,
       id: i,
       show: re
-    }), (pe, Ee) => (m(), x(zt, {
+    }), (pe, Pe) => (m(), x(zt, {
       to: pe.teleportTo,
       disabled: v(T)
     }, [
       ye(Mt, {
         "no-fade": !0,
         "trans-props": { enterToClass: "show" },
-        modelValueBoolean: v(C),
         onBeforeEnter: He,
         onAfterEnter: Re,
         onLeave: kt,
@@ -7605,13 +7606,13 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                   key: 0,
                   class: j(["modal-header", X.value])
                 }, [
-                  A(pe.$slots, "header", Se(Pe($t)), () => [
+                  A(pe.$slots, "header", Se(Ee($t)), () => [
                     (m(), x(se(pe.titleTag), {
                       id: `${v(i)}-label`,
                       class: j(["modal-title", de.value])
                     }, {
                       default: R(() => [
-                        A(pe.$slots, "title", Se(Pe($t)), () => [
+                        A(pe.$slots, "title", Se(Ee($t)), () => [
                           ne(Z(pe.title), 1)
                         ], !0)
                       ]),
@@ -7619,7 +7620,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                     }, 8, ["id", "class"])),
                     v(V) ? J("", !0) : (m(), N(ge, { key: 0 }, [
                       M.value ? (m(), x(pt, Q({ key: 0 }, te.value, {
-                        onClick: Ee[0] || (Ee[0] = (Jt) => Y("close"))
+                        onClick: Pe[0] || (Pe[0] = (Jt) => Y("close"))
                       }), {
                         default: R(() => [
                           A(pe.$slots, "header-close", {}, void 0, !0)
@@ -7629,7 +7630,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                         key: 1,
                         "aria-label": pe.headerCloseLabel
                       }, te.value, {
-                        onClick: Ee[1] || (Ee[1] = (Jt) => Y("close"))
+                        onClick: Pe[1] || (Pe[1] = (Jt) => Y("close"))
                       }), null, 16, ["aria-label"]))
                     ], 64))
                   ], !0)
@@ -7638,14 +7639,14 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                   id: `${v(i)}-body`,
                   class: j(["modal-body", H.value])
                 }, [
-                  A(pe.$slots, "default", Se(Pe($t)), void 0, !0)
+                  A(pe.$slots, "default", Se(Ee($t)), void 0, !0)
                 ], 10, Cd),
                 v(y) ? J("", !0) : (m(), N("div", {
                   key: 1,
                   class: j(["modal-footer", me.value])
                 }, [
-                  A(pe.$slots, "footer", Se(Pe($t)), () => [
-                    A(pe.$slots, "cancel", Se(Pe($t)), () => [
+                  A(pe.$slots, "footer", Se(Ee($t)), () => [
+                    A(pe.$slots, "cancel", Se(Ee($t)), () => [
                       v(S) ? J("", !0) : (m(), x(pt, {
                         key: 0,
                         ref_key: "cancelButton",
@@ -7653,7 +7654,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                         disabled: ie.value,
                         size: pe.buttonSize,
                         variant: pe.cancelVariant,
-                        onClick: Ee[2] || (Ee[2] = (Jt) => Y("cancel"))
+                        onClick: Pe[2] || (Pe[2] = (Jt) => Y("cancel"))
                       }, {
                         default: R(() => [
                           ne(Z(pe.cancelTitle), 1)
@@ -7661,14 +7662,14 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                         _: 1
                       }, 8, ["disabled", "size", "variant"]))
                     ], !0),
-                    A(pe.$slots, "ok", Se(Pe($t)), () => [
+                    A(pe.$slots, "ok", Se(Ee($t)), () => [
                       ye(pt, {
                         ref_key: "okButton",
                         ref: z,
                         disabled: ce.value,
                         size: pe.buttonSize,
                         variant: pe.okVariant,
-                        onClick: Ee[3] || (Ee[3] = (Jt) => Y("ok"))
+                        onClick: Pe[3] || (Pe[3] = (Jt) => Y("ok"))
                       }, {
                         default: R(() => [
                           ne(Z(pe.okTitle), 1)
@@ -7688,7 +7689,7 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
                 fixed: "",
                 "no-wrap": "",
                 blur: null,
-                onClick: Ee[4] || (Ee[4] = (Jt) => Y("backdrop"))
+                onClick: Pe[4] || (Pe[4] = (Jt) => Y("backdrop"))
               }, null, 8, ["variant", "show"])
             ], !0)
           ], 16, Sd), [
@@ -7696,11 +7697,11 @@ const Gt = /* @__PURE__ */ $a(zr, [["render", Rr]]), xr = /* @__PURE__ */ q({
           ])
         ]),
         _: 3
-      }, 8, ["modelValueBoolean"])
+      })
     ], 8, ["to", "disabled"]));
   }
 });
-const kd = /* @__PURE__ */ $a(wd, [["__scopeId", "data-v-552d307f"]]), $d = /* @__PURE__ */ q({
+const kd = /* @__PURE__ */ $a(wd, [["__scopeId", "data-v-5729d26a"]]), $d = /* @__PURE__ */ q({
   __name: "BNav",
   props: {
     align: { default: void 0 },
@@ -8533,7 +8534,7 @@ const kd = /* @__PURE__ */ $a(wd, [["__scopeId", "data-v-552d307f"]]), $d = /* @
           _: 3
         }, 16))
       ], 16)) : J("", !0),
-      ee("li", Se(Pe(P.value.li)), [
+      ee("li", Se(Ee(P.value.li)), [
         (m(), x(se(P.value.button.is), Q(P.value.button, {
           onClick: U[1] || (U[1] = (H) => we(H, v(b) - 1))
         }), {
@@ -8546,7 +8547,7 @@ const kd = /* @__PURE__ */ $a(wd, [["__scopeId", "data-v-552d307f"]]), $d = /* @
         }, 16))
       ], 16),
       Ve.value ? (m(), N("li", Se(Q({ key: 1 }, le.value.li)), [
-        ee("span", Se(Pe(le.value.span)), [
+        ee("span", Se(Ee(le.value.span)), [
           A(L.$slots, "ellipsis-text", {}, () => [
             ne(Z(L.ellipsisText || "..."), 1)
           ])
@@ -8596,13 +8597,13 @@ const kd = /* @__PURE__ */ $a(wd, [["__scopeId", "data-v-552d307f"]]), $d = /* @
         }, 1032, ["class", "aria-controls", "aria-disabled", "aria-label", "aria-posinset", "aria-checked", "aria-setsize", "type", "tabindex", "onClick"]))
       ], 10, Kd))), 128)),
       fe.value ? (m(), N("li", Se(Q({ key: 2 }, le.value.li)), [
-        ee("span", Se(Pe(le.value.span)), [
+        ee("span", Se(Ee(le.value.span)), [
           A(L.$slots, "ellipsis-text", {}, () => [
             ne(Z(L.ellipsisText || "..."), 1)
           ])
         ], 16)
       ], 16)) : J("", !0),
-      ee("li", Se(Pe(D.value.li)), [
+      ee("li", Se(Ee(D.value.li)), [
         (m(), x(se(D.value.button.is), Q(D.value.button, {
           onClick: U[2] || (U[2] = (H) => we(H, v(b) + 1))
         }), {
@@ -9846,7 +9847,7 @@ const oc = /* @__PURE__ */ $a(tc, [["render", ac]]), An = /* @__PURE__ */ q({
       Te(M.$slots, (U, H) => ({
         name: H,
         fn: R((G) => [
-          A(M.$slots, H, Se(Pe(G)))
+          A(M.$slots, H, Se(Ee(G)))
         ])
       }))
     ]), 1040, ["aria-busy", "items", "fields", "table-class"]));
@@ -10391,7 +10392,7 @@ const oc = /* @__PURE__ */ $a(tc, [["render", ac]]), An = /* @__PURE__ */ q({
       Te(i.$slots, (u, d) => ({
         name: d,
         fn: R((f) => [
-          A(i.$slots, d, Se(Pe(f)))
+          A(i.$slots, d, Se(Ee(f)))
         ])
       }))
     ]), 1040));

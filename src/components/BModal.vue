@@ -3,7 +3,6 @@
     <BTransition
       :no-fade="true"
       :trans-props="{enterToClass: 'show'}"
-      :modelValueBoolean="modelValueBoolean"
       @before-enter="onBeforeEnter"
       @after-enter="onAfterEnter"
       @leave="onLeave"
