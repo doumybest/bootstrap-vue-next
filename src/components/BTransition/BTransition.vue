@@ -1,5 +1,5 @@
 <template>
-  <Transition v-bind="computedAttrs">
+  <Transition v-if="modelValueBoolean" v-bind="computedAttrs">
     <slot />
   </Transition>
 </template>
@@ -11,12 +11,14 @@ import {useBooleanish} from '../../composables'
 
 const props = withDefaults(
   defineProps<{
+    modelValueBoolean: Booleanish
     appear?: Booleanish
     mode?: TransitionMode
     noFade?: Booleanish
     transProps?: TransitionProps
   }>(),
   {
+    modelValueBoolean: false,
     appear: false,
     mode: undefined,
     noFade: false,

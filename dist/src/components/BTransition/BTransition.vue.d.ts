@@ -1,21 +1,25 @@
 import type { Booleanish, TransitionMode } from '../../types';
 import { type TransitionProps } from 'vue';
 declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<{
+    modelValueBoolean: Booleanish;
     appear?: Booleanish | undefined;
     mode?: TransitionMode | undefined;
     noFade?: Booleanish | undefined;
     transProps?: TransitionProps | undefined;
 }>, {
+    modelValueBoolean: boolean;
     appear: boolean;
     mode: undefined;
     noFade: boolean;
     transProps: undefined;
 }>, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<{
+    modelValueBoolean: Booleanish;
     appear?: Booleanish | undefined;
     mode?: TransitionMode | undefined;
     noFade?: Booleanish | undefined;
     transProps?: TransitionProps | undefined;
 }>, {
+    modelValueBoolean: boolean;
     appear: boolean;
     mode: undefined;
     noFade: boolean;
@@ -23,6 +27,7 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
 }>>>, {
     noFade: Booleanish;
     mode: TransitionMode;
+    modelValueBoolean: Booleanish;
     appear: Booleanish;
     transProps: TransitionProps;
 }, {}>, Readonly<{

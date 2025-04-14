@@ -1,15 +1,16 @@
 <template>
   <Teleport :to="teleportTo" :disabled="teleportDisabledBoolean">
     <BTransition
-      v-if="modelValueBoolean"
       :no-fade="true"
       :trans-props="{enterToClass: 'show'}"
+      :modelValueBoolean="modelValueBoolean"
       @before-enter="onBeforeEnter"
       @after-enter="onAfterEnter"
       @leave="onLeave"
       @after-leave="onAfterLeave"
     >
       <div
+        v-show="modelValueBoolean"
         :id="computedId"
         ref="element"
         class="modal"
@@ -101,16 +102,7 @@
 </template>
 
 <script setup lang="ts">
-import {
-  computed,
-  type CSSProperties,
-  onUnmounted,
-  reactive,
-  ref,
-  type RendererElement,
-  toRef,
-  watch,
-} from 'vue'
+import {computed, type CSSProperties, reactive, ref, type RendererElement, toRef, watch} from 'vue'
 import {
   useBooleanish,
   useColorVariantClasses,
@@ -330,7 +322,7 @@ const closeButton = ref<HTMLElement | null>(null)
 const isActive = ref(modelValueBoolean.value)
 const lazyLoadCompleted = ref(false)
 
-const stopEscKeyStroke = onKeyStroke(
+onKeyStroke(
   'Escape',
   () => {
     hide('esc')
@@ -451,7 +443,7 @@ const buildTriggerableEvent = (
     componentId: computedId.value,
   })
 
-const stopWartchModalValue = watch(modelValueBoolean, (newValue, oldValue) => {
+watch(modelValueBoolean, (newValue, oldValue) => {
   if (newValue === oldValue) return
   if (newValue === true) {
     showFn()
@@ -563,15 +555,6 @@ defineExpose({
   hide,
   id: computedId,
   show: showFn,
-})
-
-onUnmounted(() => {
-  stopWartchModalValue()
-  stopEscKeyStroke()
-  element.value = null
-  okButton.value = null
-  cancelButton.value = null
-  closeButton.value = null
 })
 </script>
 
